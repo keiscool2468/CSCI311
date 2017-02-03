@@ -64,33 +64,14 @@ $config['ci_bootstrap'] = array(
 			'url'		=> '',
 			'icon'		=> 'fa fa-home',
 		),
-		'KLN 12th' => array(
-			'name'		=> '進度性獎章',
-			'url'		=> 'user',
-			'icon'		=> 'fa fa-users',
-			'children'  => array(
-				'Scout'			=> 'user',
-				'Venture'		=> '',
-				'Create'		=> 'user/create',
-				'User Groups'	=> 'user/group',
-			)
-		),
 		'panel' => array(
-			'name'		=> 'Admin Panel',
+			'name'		=> 'Scout',
 			'url'		=> 'panel',
 			'icon'		=> 'fa fa-cog',
 			'children'  => array(
-				'Admin Users'			=> 'panel/admin_user',
-				'Create Admin User'		=> 'panel/admin_user_create',
-				'Admin User Groups'		=> 'panel/admin_user_group',
-			)
-		),
-		'util' => array(
-			'name'		=> 'Utilities',
-			'url'		=> 'util',
-			'icon'		=> 'fa fa-cogs',
-			'children'  => array(
-				'Database Versions'		=> 'util/list_db',
+				'Members'			=> 'panel/admin_user',
+				'Create Members'		=> 'panel/admin_user_create',
+				'Members Groups'		=> 'panel/admin_user_group',
 			)
 		),
 		'logout' => array(
@@ -105,47 +86,24 @@ $config['ci_bootstrap'] = array(
 
 	// Restricted pages
 	'page_auth' => array(
-		'user/create'				=> array('webmaster', 'admin', 'manager'),
-		'user/group'				=> array('webmaster', 'admin', 'manager'),
-		'panel'						=> array('webmaster'),
 		'panel/admin_user'			=> array('webmaster'),
 		'panel/admin_user_create'	=> array('webmaster'),
 		'panel/admin_user_group'	=> array('webmaster'),
-		'util'						=> array('webmaster'),
-		'util/list_db'				=> array('webmaster'),
-		'util/backup_db'			=> array('webmaster'),
-		'util/restore_db'			=> array('webmaster'),
-		'util/remove_db'			=> array('webmaster'),
 	),
 
 	// AdminLTE settings
 	'adminlte' => array(
 		'body_class' => array(
 			'webmaster'	=> 'skin-red',
-			'admin'		=> 'skin-purple',
-			'manager'	=> 'skin-black',
-			'staff'		=> 'skin-blue',
+			'admin'		=> 'skin-green',
+			'staff'		=> 'skin-green',
 		)
 	),
 
 	// Useful links to display at bottom of sidemenu
 	'useful_links' => array(
-		// array(
-		// 	'auth'		=> array('webmaster', 'admin', 'manager', 'staff'),
-		// 	'name'		=> '深資童軍訓練綱要(網上版)',
-		// 	'url'		=> '',
-		// 	'target'	=> '_blank',
-		// 	'color'		=> 'text-red'
-		// ),
-		// array(
-		// 	'auth'		=> array('webmaster', 'admin'),
-		// 	'name'		=> 'API Site',
-		// 	'url'		=> 'api',
-		// 	'target'	=> '_blank',
-		// 	'color'		=> 'text-orange'
-		// ),
 		array(
-			'auth'		=> array('webmaster', 'admin', 'manager', 'staff'),
+			'auth'		=> array('webmaster', 'admin','staff'),
 			'name'		=> '童軍訓練綱要 (網上版)',
 			'url'		=> CI_BOOTSTRAP_REPO,
 			'target'	=> '_blank',
