@@ -14,12 +14,44 @@ class Panel extends Admin_Controller {
 	{
 		parent::__construct();
 		$this->load->library('form_builder');
+		$this->load->model('admin_user_model');
+		$this->load->model('admin_user_group_model');
 	}
 
 	// Admin Users CRUD
 	public function admin_user()
 	{
 		$crud = $this->generate_crud('admin_users');
+		$crud->set_relation('id', 'admin_users_groups', 'group_id');
+		$crud->where('group_id <', 3);
+		$crud->columns('groups', 'username', 'first_name', 'last_name', 'active');
+		$this->unset_crud_fields('ip_address', 'last_login');
+		// cannot change Admin User groups once created
+		if ($crud->getState()=='list')
+		{
+			$crud->set_relation_n_n('groups', 'admin_users_groups', 'admin_groups', 'user_id', 'group_id', 'name');
+		}
+		// only webmaster can reset Admin User password
+		if ( $this->ion_auth->in_group(array('webmaster', 'admin')) )
+		{
+			$crud->add_action('Reset Password', '', $this->mModule.'/panel/admin_user_reset_password', 'fa fa-repeat');
+		}
+		
+		
+		// disable direct create / delete Admin User
+		$crud->unset_add();
+		$crud->unset_delete();
+		$crud->unset_export();
+		$crud->unset_print();
+		$this->mPageTitle = 'Leader Account';
+		$this->render_crud();
+	}
+
+	public function scout_user()
+	{
+		$crud = $this->generate_crud('admin_users');
+		$crud->set_relation('id', 'admin_users_groups', 'group_id');
+		$crud->where('group_id >', 2);
 		$crud->columns('groups', 'username', 'first_name', 'last_name', 'active');
 		$this->unset_crud_fields('ip_address', 'last_login');
 
@@ -33,24 +65,68 @@ class Panel extends Admin_Controller {
 		if ( $this->ion_auth->in_group(array('webmaster', 'admin')) )
 		{
 			$crud->add_action('Reset Password', '', $this->mModule.'/panel/admin_user_reset_password', 'fa fa-repeat');
+			$crud->add_action('Check Progressive Award', '', $this->mModule.'/panel/check_progressive', 'fa fa-trophy');
+			$crud->add_action('Personal Particular', '', $this->mModule.'/panel/personal_particular', 'fa fa-id-card-o');
 		}
 		
 		// disable direct create / delete Admin User
 		$crud->unset_add();
 		$crud->unset_delete();
-
-		$this->mPageTitle = 'Admin Users';
+		$crud->unset_export();
+		$crud->unset_print();
+		$this->mPageTitle = 'Scout Account';
 		$this->render_crud();
 	}
 
+	public function check_progressive()
+	{
+
+	}
+
+	public function personal_particular()
+	{
+		$form = $this->form_builder->create_form();
+		if ($form->validate())
+		{
+			// passed validation
+			$username = $this->input->post('username');
+			$email = $this->input->post('email');
+			$password = $this->input->post('password');
+			$additional_data = array(
+				'first_name'	=> $this->input->post('first_name'),
+				'last_name'		=> $this->input->post('last_name'),
+			);
+			$groups = $this->input->post('groups');
+
+			// create user (default group as "members")
+			$user = $this->ion_auth->register($username, $password, $email, $additional_data, $groups);
+			if ($user)
+			{
+				// success
+				$messages = $this->ion_auth->messages();
+				$this->system_message->set_success($messages);
+			}
+			else
+			{
+				// failed
+				$errors = $this->ion_auth->errors();
+				$this->system_message->set_error($errors);
+			}
+			refresh();
+		}
+
+		$groups = $this->ion_auth->groups()->result();
+		unset($groups[0]);	// disable creation of "webmaster" account
+		$this->mViewData['groups'] = $groups;
+		$this->mPageTitle = 'Personal Particular';
+
+		$this->mViewData['form'] = $form;
+		$this->render('panel/admin_user_create');
+	}
 	// Create Admin User
 	public function admin_user_create()
 	{
-		// (optional) only top-level admin user groups can create Admin User
-		//$this->verify_auth(array('webmaster'));
-
 		$form = $this->form_builder->create_form();
-
 		if ($form->validate())
 		{
 			// passed validation

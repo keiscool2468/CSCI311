@@ -69,7 +69,8 @@ $config['ci_bootstrap'] = array(
 			'url'		=> 'panel',
 			'icon'		=> 'fa fa-cog',
 			'children'  => array(
-				'Members'			=> 'panel/admin_user',
+				'Leader'				=> 'panel/admin_user',
+				'Scouts'				=> 'panel/scout_user',
 				'Create Members'		=> 'panel/admin_user_create',
 				'Members Groups'		=> 'panel/admin_user_group',
 			)
