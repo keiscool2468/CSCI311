@@ -1,7 +1,7 @@
 <?php 
 
 class Admin_user_group_model extends MY_Model {
-	public $_table = 'admin_users_groups';
+        public $_table = 'admin_users_groups';
         public function get_admin_user_groups($slug = TRUE)
         {
                 if ($slug === TRUE)

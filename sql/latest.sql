@@ -2,10 +2,10 @@
 -- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Feb 03, 2017 at 02:54 PM
--- Server version: 5.7.17-0ubuntu0.16.04.1
--- PHP Version: 7.0.13-0ubuntu0.16.04.1
+-- 主機: localhost
+-- 產生時間： 2017 年 02 月 16 日 01:26
+-- 伺服器版本: 5.7.17-0ubuntu0.16.04.1
+-- PHP 版本： 7.0.13-0ubuntu0.16.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `HKscouting`
+-- 資料庫： `HKscouting`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin_groups`
+-- 資料表結構 `admin_groups`
 --
 
 CREATE TABLE `admin_groups` (
@@ -33,19 +33,20 @@ CREATE TABLE `admin_groups` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `admin_groups`
+-- 資料表的匯出資料 `admin_groups`
 --
 
 INSERT INTO `admin_groups` (`id`, `name`, `description`) VALUES
 (1, 'webmaster', 'Webmaster'),
-(2, 'admin', 'Administrator'),
-(3, 'manager', 'Manager'),
-(4, 'staff', 'Staff');
+(2, 'Leader', 'Leader'),
+(3, 'Scout', 'Scout'),
+(4, 'Sea Scout', 'Sea Scout'),
+(5, 'Air Scout', 'Air Scout');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin_login_attempts`
+-- 資料表結構 `admin_login_attempts`
 --
 
 CREATE TABLE `admin_login_attempts` (
@@ -58,7 +59,7 @@ CREATE TABLE `admin_login_attempts` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin_users`
+-- 資料表結構 `admin_users`
 --
 
 CREATE TABLE `admin_users` (
@@ -80,19 +81,24 @@ CREATE TABLE `admin_users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `admin_users`
+-- 資料表的匯出資料 `admin_users`
 --
 
 INSERT INTO `admin_users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`) VALUES
-(1, '127.0.0.1', 'webmaster', '$2y$08$/X5gzWjesYi78GqeAv5tA.dVGBVP7C1e1PzqnYCVe5s1qhlDIPPES', NULL, NULL, NULL, NULL, NULL, NULL, 1451900190, 1485934843, 1, 'Webmaster', ''),
+(1, '127.0.0.1', 'webmaster', '$2y$08$/X5gzWjesYi78GqeAv5tA.dVGBVP7C1e1PzqnYCVe5s1qhlDIPPES', NULL, NULL, NULL, NULL, NULL, NULL, 1451900190, 1487179481, 1, 'Webmaster', 'webmaster'),
 (2, '127.0.0.1', 'admin', '$2y$08$7Bkco6JXtC3Hu6g9ngLZDuHsFLvT7cyAxiz1FzxlX5vwccvRT7nKW', NULL, NULL, NULL, NULL, NULL, NULL, 1451900228, 1484731155, 1, 'Admin', ''),
-(3, '127.0.0.1', 'manager', '$2y$08$snzIJdFXvg/rSHe0SndIAuvZyjktkjUxBXkrrGdkPy1K6r5r/dMLa', NULL, NULL, NULL, NULL, NULL, NULL, 1451900430, 1484731176, 1, 'Manager', ''),
-(4, '127.0.0.1', 'staff', '$2y$08$NigAXjN23CRKllqe3KmjYuWXD5iSRPY812SijlhGeKfkrMKde9da6', NULL, NULL, NULL, NULL, NULL, NULL, 1451900439, 1485398033, 1, 'Staff', '');
+(5, '127.0.0.1', 'keiscool2468', '$2y$08$XYCmeX5MCHLtZrIG4rfD8OYDmGaVvhtgO5sC5yBjLgW1/Cf45do0y', NULL, NULL, NULL, NULL, NULL, NULL, 1486525701, 1486525729, 1, 'Li', 'Chak Shing'),
+(6, '127.0.0.1', 'jack', '$2y$08$ZzjKCMOVLBrLWfDtEXk8VuyAku7Te9ojaniNSvGqRrgQnofcvm6zy', NULL, NULL, NULL, NULL, NULL, NULL, 1486628711, NULL, 1, 'jack', 'jack'),
+(7, '127.0.0.1', 'rose', '$2y$08$LLPnNpuCJA.jmREJmQVmoOycGuiYUw.dqQooVIl.BGMg7y0aOS6Ma', NULL, '', NULL, NULL, NULL, NULL, 1486650088, NULL, 1, 'rose', 'rose'),
+(8, '127.0.0.1', 'sam', '$2y$08$UxH1NkIwib1ovr.nqvfQk.BEDJUDIkDnBPaIRiWIuAegnFvyx9hRK', NULL, '', NULL, NULL, NULL, NULL, 1486650225, NULL, 1, 'sam', 'sam'),
+(9, '127.0.0.1', 'ram', '$2y$08$ipPLDE1W3hopgPOWFpzFzOnZqAcroOM/K9VL85BxC/nVMbc48o.UK', NULL, NULL, NULL, NULL, NULL, NULL, 1486651292, NULL, 1, 'ram', 'ram'),
+(10, '127.0.0.1', 'ivan', '$2y$08$8RCpt6m86SLKVHTfehhp3.Xur3oKLVWtu.ASF1e0SToT2fZU7LPw6', NULL, NULL, NULL, NULL, NULL, NULL, 1486651413, NULL, 0, 'ivan', 'ivan'),
+(11, '127.0.0.1', 'bigbuz', '$2y$08$YxaHjIm7L4g.C0NhfdZPjOQZsDaSpkwVoiJVEN3z74uWwZ9uLcjW.', NULL, NULL, NULL, NULL, NULL, NULL, 1487130867, NULL, 1, 'big', 'bus');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin_users_groups`
+-- 資料表結構 `admin_users_groups`
 --
 
 CREATE TABLE `admin_users_groups` (
@@ -102,19 +108,59 @@ CREATE TABLE `admin_users_groups` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `admin_users_groups`
+-- 資料表的匯出資料 `admin_users_groups`
 --
 
 INSERT INTO `admin_users_groups` (`id`, `user_id`, `group_id`) VALUES
 (1, 1, 1),
 (2, 2, 2),
-(3, 3, 3),
-(4, 4, 4);
+(3, 5, 3),
+(6, 6, 3),
+(7, 7, 2),
+(8, 8, 3),
+(9, 9, 3),
+(10, 10, 3),
+(11, 11, 5);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `groups`
+-- 資料表結構 `award_groups`
+--
+
+CREATE TABLE `award_groups` (
+  `id` mediumint(8) UNSIGNED NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `description` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 資料表的匯出資料 `award_groups`
+--
+
+INSERT INTO `award_groups` (`id`, `name`, `description`) VALUES
+(1, 'menbership', 'Membership Award'),
+(2, 'pathfinder', 'Pathfinder Award'),
+(3, 'standard', 'Standard Award'),
+(4, 'advanced', 'Advanced Award'),
+(5, 'chief', 'Chief Scout Award');
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `award_users_groups`
+--
+
+CREATE TABLE `award_users_groups` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `user_id` int(11) UNSIGNED NOT NULL,
+  `award_id` mediumint(8) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `groups`
 --
 
 CREATE TABLE `groups` (
@@ -124,7 +170,7 @@ CREATE TABLE `groups` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `groups`
+-- 資料表的匯出資料 `groups`
 --
 
 INSERT INTO `groups` (`id`, `name`, `description`) VALUES
@@ -133,7 +179,7 @@ INSERT INTO `groups` (`id`, `name`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `login_attempts`
+-- 資料表結構 `login_attempts`
 --
 
 CREATE TABLE `login_attempts` (
@@ -146,10 +192,10 @@ CREATE TABLE `login_attempts` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `scout_advanced_signature`
+-- 資料表結構 `scout_advanced_awards`
 --
 
-CREATE TABLE `scout_advanced_signature` (
+CREATE TABLE `scout_advanced_awards` (
   `id` int(11) NOT NULL,
   `record_book_number` int(11) NOT NULL,
   `A1a` varchar(255) DEFAULT NULL,
@@ -209,73 +255,25 @@ CREATE TABLE `scout_advanced_signature` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `scout_advanced_times`
+-- 資料表結構 `scout_award_update_records`
 --
 
-CREATE TABLE `scout_advanced_times` (
+CREATE TABLE `scout_award_update_records` (
   `id` int(11) NOT NULL,
   `record_book_number` int(11) NOT NULL,
-  `A1a` datetime DEFAULT NULL,
-  `A1b` datetime DEFAULT NULL,
-  `A1c` datetime DEFAULT NULL,
-  `A2ai` datetime DEFAULT NULL,
-  `A2aii` datetime DEFAULT NULL,
-  `A2b` datetime DEFAULT NULL,
-  `A2c` datetime DEFAULT NULL,
-  `A3a` datetime DEFAULT NULL,
-  `A3b` datetime DEFAULT NULL,
-  `A3c` datetime DEFAULT NULL,
-  `A4a` datetime DEFAULT NULL,
-  `A4b` datetime DEFAULT NULL,
-  `A5a` datetime DEFAULT NULL,
-  `A5b` datetime DEFAULT NULL,
-  `A5c` datetime DEFAULT NULL,
-  `A6a` datetime DEFAULT NULL,
-  `A6b` datetime DEFAULT NULL,
-  `A6c` datetime DEFAULT NULL,
-  `B1ai` datetime DEFAULT NULL,
-  `B1aii` datetime DEFAULT NULL,
-  `B1aiii` datetime DEFAULT NULL,
-  `B1aiv` datetime DEFAULT NULL,
-  `B2a` datetime DEFAULT NULL,
-  `B2bi` datetime DEFAULT NULL,
-  `B2bii` datetime DEFAULT NULL,
-  `B2biii` datetime DEFAULT NULL,
-  `B2biv` datetime DEFAULT NULL,
-  `B2bv` datetime DEFAULT NULL,
-  `B2bvi` datetime DEFAULT NULL,
-  `B3a` datetime DEFAULT NULL,
-  `B4a` datetime DEFAULT NULL,
-  `B4ai` datetime DEFAULT NULL,
-  `B4aii` datetime DEFAULT NULL,
-  `C1a` datetime DEFAULT NULL,
-  `C1b` datetime DEFAULT NULL,
-  `C1c` datetime DEFAULT NULL,
-  `C1d` datetime DEFAULT NULL,
-  `C1chop` datetime DEFAULT NULL,
-  `C2ai` datetime DEFAULT NULL,
-  `C2aii` datetime DEFAULT NULL,
-  `C2aiii` datetime DEFAULT NULL,
-  `C3ai` datetime DEFAULT NULL,
-  `C3aii` datetime DEFAULT NULL,
-  `D1a` datetime DEFAULT NULL,
-  `D2ai` datetime DEFAULT NULL,
-  `D2aii` datetime DEFAULT NULL,
-  `D2bi` datetime DEFAULT NULL,
-  `D2bii` datetime DEFAULT NULL,
-  `D3ai` datetime DEFAULT NULL,
-  `D3aii` datetime DEFAULT NULL,
-  `E1` datetime DEFAULT NULL,
-  `issue_date` datetime DEFAULT NULL
+  `award_id` mediumint(8) NOT NULL,
+  `field` varchar(255) NOT NULL,
+  `leader_user_name` varchar(255) NOT NULL,
+  `update_time` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `scout_chief_signatures`
+-- 資料表結構 `scout_chief_awards`
 --
 
-CREATE TABLE `scout_chief_signatures` (
+CREATE TABLE `scout_chief_awards` (
   `id` int(11) NOT NULL,
   `record_book_number` int(11) NOT NULL,
   `A1a` varchar(255) NOT NULL,
@@ -327,75 +325,15 @@ CREATE TABLE `scout_chief_signatures` (
   `E1` varchar(255) NOT NULL,
   `E2` varchar(255) NOT NULL,
   `nomination` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `scout_chief_times`
+-- 資料表結構 `scout_membership_awards`
 --
 
-CREATE TABLE `scout_chief_times` (
-  `id` int(11) NOT NULL,
-  `record_book_number` int(11) NOT NULL,
-  `A1a` datetime NOT NULL,
-  `A1b` datetime NOT NULL,
-  `A1c` datetime NOT NULL,
-  `A2a` datetime NOT NULL,
-  `A2b` datetime NOT NULL,
-  `A2c` datetime NOT NULL,
-  `A3a` datetime NOT NULL,
-  `A3b` datetime NOT NULL,
-  `A4a` datetime NOT NULL,
-  `A4b` datetime NOT NULL,
-  `A5a` datetime NOT NULL,
-  `A5b` datetime NOT NULL,
-  `A6a` datetime NOT NULL,
-  `A6b` datetime NOT NULL,
-  `B1a` datetime NOT NULL,
-  `B1b` datetime NOT NULL,
-  `B2a` datetime NOT NULL,
-  `B2bi` datetime NOT NULL,
-  `B2bii` datetime NOT NULL,
-  `B2biii` datetime NOT NULL,
-  `B2biv` datetime NOT NULL,
-  `B2bv` datetime NOT NULL,
-  `B2bvi` datetime NOT NULL,
-  `B3a` datetime NOT NULL,
-  `B4a` datetime NOT NULL,
-  `B4bi` datetime NOT NULL,
-  `B4bii` datetime NOT NULL,
-  `B4biii` datetime NOT NULL,
-  `C1a` datetime NOT NULL,
-  `C1b` datetime NOT NULL,
-  `C1c` datetime NOT NULL,
-  `C1chop` datetime NOT NULL,
-  `C2a` datetime NOT NULL,
-  `C2bi` datetime NOT NULL,
-  `C2bii` datetime NOT NULL,
-  `C2biii` datetime NOT NULL,
-  `C3a` datetime NOT NULL,
-  `C3bi` datetime NOT NULL,
-  `C3bii` datetime NOT NULL,
-  `C3biii` datetime NOT NULL,
-  `D1a` datetime NOT NULL,
-  `D2a` datetime NOT NULL,
-  `D2bi` datetime NOT NULL,
-  `D2bii` datetime NOT NULL,
-  `D3a` datetime NOT NULL,
-  `D3b` datetime NOT NULL,
-  `E1` datetime NOT NULL,
-  `E2` datetime NOT NULL,
-  `nomination` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `scout_membership_signatures`
---
-
-CREATE TABLE `scout_membership_signatures` (
+CREATE TABLE `scout_membership_awards` (
   `id` int(11) NOT NULL,
   `record_book_number` int(11) NOT NULL,
   `1` varchar(255) DEFAULT NULL,
@@ -408,36 +346,15 @@ CREATE TABLE `scout_membership_signatures` (
   `8` varchar(255) DEFAULT NULL,
   `9` varchar(255) DEFAULT NULL,
   `10` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `scout_membership_times`
+-- 資料表結構 `scout_pathfinder_awards`
 --
 
-CREATE TABLE `scout_membership_times` (
-  `id` int(11) NOT NULL,
-  `record_book_number` int(11) NOT NULL,
-  `1` datetime DEFAULT NULL,
-  `2` datetime DEFAULT NULL,
-  `3` datetime DEFAULT NULL,
-  `4` datetime DEFAULT NULL,
-  `5` datetime DEFAULT NULL,
-  `6` datetime DEFAULT NULL,
-  `7` datetime DEFAULT NULL,
-  `8` datetime DEFAULT NULL,
-  `9` datetime DEFAULT NULL,
-  `10` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `scout_pathfinder_signatures`
---
-
-CREATE TABLE `scout_pathfinder_signatures` (
+CREATE TABLE `scout_pathfinder_awards` (
   `id` int(11) NOT NULL,
   `record_book_number` int(11) NOT NULL,
   `A1a` varchar(255) DEFAULT NULL,
@@ -470,65 +387,26 @@ CREATE TABLE `scout_pathfinder_signatures` (
   `D1a` varchar(255) DEFAULT NULL,
   `D2a` varchar(255) DEFAULT NULL,
   `issue_date` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `scout_pathfinder_times`
---
-
-CREATE TABLE `scout_pathfinder_times` (
-  `id` int(11) NOT NULL,
-  `record_book_number` int(11) NOT NULL,
-  `A1a` datetime DEFAULT NULL,
-  `A1b` datetime DEFAULT NULL,
-  `A1c` datetime DEFAULT NULL,
-  `A1d` datetime DEFAULT NULL,
-  `A2a` datetime DEFAULT NULL,
-  `A2b` datetime DEFAULT NULL,
-  `A2c` datetime DEFAULT NULL,
-  `A3a` datetime DEFAULT NULL,
-  `A3b` datetime DEFAULT NULL,
-  `A4a` datetime DEFAULT NULL,
-  `A4bi` datetime DEFAULT NULL,
-  `A4bii` datetime DEFAULT NULL,
-  `A4biii` datetime DEFAULT NULL,
-  `A5a` datetime DEFAULT NULL,
-  `A5b` datetime DEFAULT NULL,
-  `A6a` datetime DEFAULT NULL,
-  `A6bi` datetime DEFAULT NULL,
-  `A6bii` datetime DEFAULT NULL,
-  `A6biii` datetime DEFAULT NULL,
-  `B1a` datetime DEFAULT NULL,
-  `B2a` datetime DEFAULT NULL,
-  `B3a` datetime DEFAULT NULL,
-  `B4a` datetime DEFAULT NULL,
-  `B4b` datetime DEFAULT NULL,
-  `C1a` datetime DEFAULT NULL,
-  `C1b` datetime DEFAULT NULL,
-  `C2a` datetime DEFAULT NULL,
-  `D1a` datetime DEFAULT NULL,
-  `D2a` datetime DEFAULT NULL,
-  `issue_date` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `scout_personal_particulars`
+-- 資料表結構 `scout_personal_particulars`
 --
 
 CREATE TABLE `scout_personal_particulars` (
   `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `scout_type` varchar(255) NOT NULL,
   `chinese_name` varchar(255) NOT NULL,
   `english_name` varchar(255) NOT NULL,
-  `date_of_birth` date NOT NULL,
+  `date_of_birth` varchar(10) NOT NULL,
   `age` int(2) NOT NULL,
   `gender` varchar(1) NOT NULL,
   `hkid` varchar(4) NOT NULL,
   `record_book_number` varchar(12) NOT NULL,
-  `date_of_investiture` date NOT NULL,
+  `date_of_investiture` varchar(10) NOT NULL,
   `region` varchar(255) NOT NULL,
   `district` varchar(255) NOT NULL,
   `group_number` int(4) NOT NULL,
@@ -541,10 +419,26 @@ CREATE TABLE `scout_personal_particulars` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `scout_standard_signatures`
+-- 資料表結構 `scout_personal_particulars_update_records`
 --
 
-CREATE TABLE `scout_standard_signatures` (
+CREATE TABLE `scout_personal_particulars_update_records` (
+  `id` int(11) NOT NULL,
+  `record_book_number` int(11) NOT NULL,
+  `field` varchar(255) NOT NULL,
+  `from` varchar(255) NOT NULL,
+  `to` varchar(255) NOT NULL,
+  `leader_user_name` varchar(255) NOT NULL,
+  `update_time` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `scout_standard_awards`
+--
+
+CREATE TABLE `scout_standard_awards` (
   `id` int(11) NOT NULL,
   `record_book_number` int(11) NOT NULL,
   `A1a` varchar(255) DEFAULT NULL,
@@ -593,69 +487,12 @@ CREATE TABLE `scout_standard_signatures` (
   `D3aii` varchar(255) DEFAULT NULL,
   `E1a` varchar(255) DEFAULT NULL,
   `issue_date` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `scout_standard_times`
---
-
-CREATE TABLE `scout_standard_times` (
-  `id` int(11) NOT NULL,
-  `record_book_number` int(11) NOT NULL,
-  `A1a` datetime DEFAULT NULL,
-  `A1b` datetime DEFAULT NULL,
-  `A1c` datetime DEFAULT NULL,
-  `A1d` datetime DEFAULT NULL,
-  `A1e` datetime DEFAULT NULL,
-  `A2a` datetime DEFAULT NULL,
-  `A2b` datetime DEFAULT NULL,
-  `A2c` datetime DEFAULT NULL,
-  `A2d` datetime DEFAULT NULL,
-  `A3a` datetime DEFAULT NULL,
-  `A3b` datetime DEFAULT NULL,
-  `A3c` datetime DEFAULT NULL,
-  `A4a` datetime DEFAULT NULL,
-  `A4b` datetime DEFAULT NULL,
-  `A4ci` datetime DEFAULT NULL,
-  `A4cii` datetime DEFAULT NULL,
-  `A5a` datetime DEFAULT NULL,
-  `A6a` datetime DEFAULT NULL,
-  `A6b` datetime DEFAULT NULL,
-  `A6ci` datetime DEFAULT NULL,
-  `A6cii` datetime DEFAULT NULL,
-  `B1ai` datetime DEFAULT NULL,
-  `B1aii` datetime DEFAULT NULL,
-  `B2a` datetime DEFAULT NULL,
-  `B2bii` datetime DEFAULT NULL,
-  `B2biii` datetime DEFAULT NULL,
-  `B2biv` datetime DEFAULT NULL,
-  `B2bv` datetime DEFAULT NULL,
-  `B2bvi` datetime DEFAULT NULL,
-  `B3a` datetime DEFAULT NULL,
-  `B4a` datetime DEFAULT NULL,
-  `B4bi` datetime DEFAULT NULL,
-  `B4bii` datetime DEFAULT NULL,
-  `C1a` datetime DEFAULT NULL,
-  `C1b` datetime DEFAULT NULL,
-  `C1c` datetime DEFAULT NULL,
-  `C1d` datetime DEFAULT NULL,
-  `C2a` datetime DEFAULT NULL,
-  `C3a` datetime DEFAULT NULL,
-  `D1a` datetime DEFAULT NULL,
-  `D2ai` datetime DEFAULT NULL,
-  `D2aii` datetime DEFAULT NULL,
-  `D3ai` datetime DEFAULT NULL,
-  `D3aii` datetime DEFAULT NULL,
-  `E1a` datetime DEFAULT NULL,
-  `issue_date` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
+-- 資料表結構 `users`
 --
 
 CREATE TABLE `users` (
@@ -679,7 +516,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `users`
+-- 資料表的匯出資料 `users`
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
@@ -688,7 +525,7 @@ INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users_groups`
+-- 資料表結構 `users_groups`
 --
 
 CREATE TABLE `users_groups` (
@@ -698,228 +535,215 @@ CREATE TABLE `users_groups` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `users_groups`
+-- 資料表的匯出資料 `users_groups`
 --
 
 INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 (1, 1, 1);
 
 --
--- Indexes for dumped tables
+-- 已匯出資料表的索引
 --
 
 --
--- Indexes for table `admin_groups`
+-- 資料表索引 `admin_groups`
 --
 ALTER TABLE `admin_groups`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `admin_login_attempts`
+-- 資料表索引 `admin_login_attempts`
 --
 ALTER TABLE `admin_login_attempts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `admin_users`
+-- 資料表索引 `admin_users`
 --
 ALTER TABLE `admin_users`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `admin_users_groups`
+-- 資料表索引 `admin_users_groups`
 --
 ALTER TABLE `admin_users_groups`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `groups`
+-- 資料表索引 `award_groups`
+--
+ALTER TABLE `award_groups`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- 資料表索引 `award_users_groups`
+--
+ALTER TABLE `award_users_groups`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- 資料表索引 `groups`
 --
 ALTER TABLE `groups`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `login_attempts`
+-- 資料表索引 `login_attempts`
 --
 ALTER TABLE `login_attempts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `scout_advanced_signature`
+-- 資料表索引 `scout_advanced_awards`
 --
-ALTER TABLE `scout_advanced_signature`
+ALTER TABLE `scout_advanced_awards`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `scout_advanced_times`
+-- 資料表索引 `scout_award_update_records`
 --
-ALTER TABLE `scout_advanced_times`
+ALTER TABLE `scout_award_update_records`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `scout_chief_signatures`
+-- 資料表索引 `scout_chief_awards`
 --
-ALTER TABLE `scout_chief_signatures`
+ALTER TABLE `scout_chief_awards`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `scout_chief_times`
+-- 資料表索引 `scout_membership_awards`
 --
-ALTER TABLE `scout_chief_times`
+ALTER TABLE `scout_membership_awards`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `scout_membership_signatures`
+-- 資料表索引 `scout_pathfinder_awards`
 --
-ALTER TABLE `scout_membership_signatures`
+ALTER TABLE `scout_pathfinder_awards`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `scout_membership_times`
---
-ALTER TABLE `scout_membership_times`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `scout_pathfinder_signatures`
---
-ALTER TABLE `scout_pathfinder_signatures`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `scout_pathfinder_times`
---
-ALTER TABLE `scout_pathfinder_times`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `scout_personal_particulars`
+-- 資料表索引 `scout_personal_particulars`
 --
 ALTER TABLE `scout_personal_particulars`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id` (`id`),
-  ADD KEY `id_2` (`id`);
-
---
--- Indexes for table `scout_standard_signatures`
---
-ALTER TABLE `scout_standard_signatures`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `scout_standard_times`
+-- 資料表索引 `scout_personal_particulars_update_records`
 --
-ALTER TABLE `scout_standard_times`
+ALTER TABLE `scout_personal_particulars_update_records`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- 資料表索引 `scout_standard_awards`
+--
+ALTER TABLE `scout_standard_awards`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- 資料表索引 `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users_groups`
+-- 資料表索引 `users_groups`
 --
 ALTER TABLE `users_groups`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- 在匯出的資料表使用 AUTO_INCREMENT
 --
 
 --
--- AUTO_INCREMENT for table `admin_groups`
+-- 使用資料表 AUTO_INCREMENT `admin_groups`
 --
 ALTER TABLE `admin_groups`
-  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
--- AUTO_INCREMENT for table `admin_login_attempts`
+-- 使用資料表 AUTO_INCREMENT `admin_login_attempts`
 --
 ALTER TABLE `admin_login_attempts`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `admin_users`
+-- 使用資料表 AUTO_INCREMENT `admin_users`
 --
 ALTER TABLE `admin_users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
--- AUTO_INCREMENT for table `admin_users_groups`
+-- 使用資料表 AUTO_INCREMENT `admin_users_groups`
 --
 ALTER TABLE `admin_users_groups`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
--- AUTO_INCREMENT for table `groups`
+-- 使用資料表 AUTO_INCREMENT `award_groups`
+--
+ALTER TABLE `award_groups`
+  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- 使用資料表 AUTO_INCREMENT `award_users_groups`
+--
+ALTER TABLE `award_users_groups`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- 使用資料表 AUTO_INCREMENT `groups`
 --
 ALTER TABLE `groups`
   MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `login_attempts`
+-- 使用資料表 AUTO_INCREMENT `login_attempts`
 --
 ALTER TABLE `login_attempts`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `scout_advanced_signature`
+-- 使用資料表 AUTO_INCREMENT `scout_advanced_awards`
 --
-ALTER TABLE `scout_advanced_signature`
+ALTER TABLE `scout_advanced_awards`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `scout_advanced_times`
+-- 使用資料表 AUTO_INCREMENT `scout_award_update_records`
 --
-ALTER TABLE `scout_advanced_times`
+ALTER TABLE `scout_award_update_records`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `scout_chief_signatures`
+-- 使用資料表 AUTO_INCREMENT `scout_chief_awards`
 --
-ALTER TABLE `scout_chief_signatures`
+ALTER TABLE `scout_chief_awards`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `scout_chief_times`
+-- 使用資料表 AUTO_INCREMENT `scout_membership_awards`
 --
-ALTER TABLE `scout_chief_times`
+ALTER TABLE `scout_membership_awards`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `scout_membership_signatures`
+-- 使用資料表 AUTO_INCREMENT `scout_pathfinder_awards`
 --
-ALTER TABLE `scout_membership_signatures`
+ALTER TABLE `scout_pathfinder_awards`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `scout_membership_times`
---
-ALTER TABLE `scout_membership_times`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `scout_pathfinder_signatures`
---
-ALTER TABLE `scout_pathfinder_signatures`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `scout_pathfinder_times`
---
-ALTER TABLE `scout_pathfinder_times`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `scout_personal_particulars`
+-- 使用資料表 AUTO_INCREMENT `scout_personal_particulars`
 --
 ALTER TABLE `scout_personal_particulars`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `scout_standard_signatures`
+-- 使用資料表 AUTO_INCREMENT `scout_personal_particulars_update_records`
 --
-ALTER TABLE `scout_standard_signatures`
+ALTER TABLE `scout_personal_particulars_update_records`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `scout_standard_times`
+-- 使用資料表 AUTO_INCREMENT `scout_standard_awards`
 --
-ALTER TABLE `scout_standard_times`
+ALTER TABLE `scout_standard_awards`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `users`
+-- 使用資料表 AUTO_INCREMENT `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `users_groups`
+-- 使用資料表 AUTO_INCREMENT `users_groups`
 --
 ALTER TABLE `users_groups`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;

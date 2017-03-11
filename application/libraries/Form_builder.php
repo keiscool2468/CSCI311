@@ -202,11 +202,24 @@ class Form {
 	/**
 	 * Bootstrap 3 functions
 	 */
+	public function bs3_label($label)
+	{
+		$extra['class'] = 'form-control';
+		return '<div class="form-group">'.form_label($label).'</div>';
+	}
+
+	public function bs3_dropdown($label,$name, $options = array(),$selected = array(), $extra = array())
+	{
+		$extra['class'] = 'form-control';
+		return '<div class="form-group">'.form_label($label).form_dropdown($name, $options, $selected, $extra).'</div>';
+	}
+
 	public function bs3_text($label, $name, $value = NULL, $extra = array())
 	{
 		$extra['class'] = 'form-control';
 		return '<div class="form-group">'.form_label($label, $name).$this->field_text($name, $value, $extra).'</div>';
 	}
+	
 
 	public function bs3_email($label, $name = 'email', $value = NULL, $extra = array())
 	{
@@ -230,6 +243,14 @@ class Form {
 	{
 		$extra['class'] = $class;
 		return $this->btn_submit($label, $extra);
+	}
+
+	public function bs3_edit($label = 'Edit', $class = 'btn btn-primary' )
+	{
+		$doc = new DomDocument;
+		$doc->Load('scout_personal_particular_edit.php');
+		$doc->getElementById('pp')->Hidden = TRUE;
+		$doc->getElementById('edits')->Hidden = FALSE;
 	}
 	
 	/**

@@ -25,6 +25,12 @@
 */
 $config['tables']['users']           = 'admin_users';
 $config['tables']['groups']          = 'admin_groups';
+$config['tables']['awards']			 = 'award_groups';
+$config['tables']['memberships']	 = 'scout_membership_awards';
+$config['tables']['pathfinders']	 = 'scout_pathfinder_awards';
+$config['tables']['standards']	 	 = 'scout_standard_awards';
+$config['tables']['advanceds']	 	 = 'scout_advanced_awards';
+$config['tables']['chiefs']	 		 = 'scout_chief_awards';
 $config['tables']['users_groups']    = 'admin_users_groups';
 $config['tables']['login_attempts']  = 'admin_login_attempts';
 

@@ -1,12 +1,12 @@
 <?php 
 
-class Admin_user_model extends MY_Model {
-		public $_table = 'admin_users';
-    	public function get_admin_users($slug = TRUE)
+class Scout_pathfinder_award_model extends MY_Model {
+        public $_table = 'scout_pathfinder_awards';
+        public function get_scout_pathfinder_awards($slug = TRUE)
         {
                 if ($slug === TRUE)
                 {
-                        $query = $this->db->get_where('admin_users');
+                        $query = $this->db->get_where('scout_pathfinder_awards');
                         return $query->result_array();
                         // print_r($query);
                 }
