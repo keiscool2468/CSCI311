@@ -41,7 +41,7 @@ INSERT INTO `admin_groups` (`id`, `name`, `description`) VALUES
 (1, 'webmaster', 'Webmaster'),
 (2, 'admin', 'Administrator'),
 (3, 'manager', 'Manager'),
-(4, 'staff', 'Staff');
+(4, 'scout', 'scout');
 
 -- --------------------------------------------------------
 
@@ -90,7 +90,7 @@ INSERT INTO `admin_users` (`id`, `ip_address`, `username`, `password`, `salt`, `
 (1, '127.0.0.1', 'webmaster', '$2y$08$/X5gzWjesYi78GqeAv5tA.dVGBVP7C1e1PzqnYCVe5s1qhlDIPPES', NULL, NULL, NULL, NULL, NULL, NULL, 1451900190, 1454170004, 1, 'Webmaster', ''),
 (2, '127.0.0.1', 'admin', '$2y$08$7Bkco6JXtC3Hu6g9ngLZDuHsFLvT7cyAxiz1FzxlX5vwccvRT7nKW', NULL, NULL, NULL, NULL, NULL, NULL, 1451900228, 1451903990, 1, 'Admin', ''),
 (3, '127.0.0.1', 'manager', '$2y$08$snzIJdFXvg/rSHe0SndIAuvZyjktkjUxBXkrrGdkPy1K6r5r/dMLa', NULL, NULL, NULL, NULL, NULL, NULL, 1451900430, NULL, 1, 'Manager', ''),
-(4, '127.0.0.1', 'staff', '$2y$08$NigAXjN23CRKllqe3KmjYuWXD5iSRPY812SijlhGeKfkrMKde9da6', NULL, NULL, NULL, NULL, NULL, NULL, 1451900439, NULL, 1, 'Staff', '');
+(4, '127.0.0.1', 'scout', '$2y$08$NigAXjN23CRKllqe3KmjYuWXD5iSRPY812SijlhGeKfkrMKde9da6', NULL, NULL, NULL, NULL, NULL, NULL, 1451900439, NULL, 1, 'scout', '');
 
 -- --------------------------------------------------------
 

@@ -210,6 +210,16 @@ if ( ! function_exists('form_input'))
 
 		return '<input '._parse_form_attributes($data, $defaults)._attributes_to_string($extra)." />\n";
 	}
+	function form_input_disable($data = '', $value = '', $extra = '')
+	{
+		$defaults = array(
+			'type' => 'text',
+			'name' => is_array($data) ? '' : $data,
+			'value' => $value
+		);
+
+		return '<input '._parse_form_attributes($data, $defaults)._attributes_to_string($extra)." disabled />\n";
+	}
 }
 
 // ------------------------------------------------------------------------
@@ -352,7 +362,9 @@ if ( ! function_exists('form_dropdown'))
 		}
 		else
 		{
-			$defaults = array('name' => $data);
+			$defaults = array('name' 	=> $data,
+							  'id' 		=> $data
+							  );
 		}
 
 		is_array($selected) OR $selected = array($selected);
@@ -543,8 +555,9 @@ if ( ! function_exists('form_button'))
 	function form_button($data = '', $content = '', $extra = '')
 	{
 		$defaults = array(
-			'name' => is_array($data) ? '' : $data,
-			'type' => 'button'
+			'name' 	=> is_array($data) ? '' : $data,
+			'type' 	=> 'button',
+			'id'   	=> 'submit'
 		);
 
 		if (is_array($data) && isset($data['content']))

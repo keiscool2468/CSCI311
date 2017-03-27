@@ -65,15 +65,25 @@ $config['ci_bootstrap'] = array(
 			'icon'		=> 'fa fa-home',
 		),
 		'panel' => array(
-			'name'		=> 'Scout',
+			'name'		=> 'Leader',
 			'url'		=> 'panel',
 			'icon'		=> 'fa fa-cog',
 			'children'  => array(
-				'Leader Managment'		=> 'panel/admin_user',
-				'Scouts Managment'		=> 'panel/scout_user',
-				'Progressive Award'		=> 'panel/scout_progressive',
-				'Create Members'		=> 'panel/admin_user_create',
-				'Members Groups'		=> 'panel/admin_user_group',
+				'Leader Managment'			=> 'panel/admin_user',
+				'Create Members'			=> 'panel/admin_user_create',
+				'Members Groups'			=> 'panel/admin_user_group',
+			)
+		),
+		'panel2' => array(
+			'name'		=> 'Scout',
+			'url'		=> 'panel2',
+			'icon'		=> 'fa fa-cog',
+			'children'  => array(
+				'Scouts Managment'			=> 'panel/scout_user',
+				'Progressive Award'			=> 'award/scout_progressive',
+				'My Progressive Award'		=> 'scout/my_award',
+				'My Personal Particular'	=> 'scout/my_personal_particular',
+				'My Proficiency Badges'		=> 'badge/my_badge',
 			)
 		),
 		'logout' => array(
@@ -88,26 +98,34 @@ $config['ci_bootstrap'] = array(
 
 	// Restricted pages
 	'page_auth' => array(
-		'panel/admin_user'			=> array('webmaster'),
-		'panel/admin_user_create'	=> array('webmaster'),
-		'panel/admin_user_group'	=> array('webmaster'),
+		'panel'								=> array('webmaster','Leader'),
+		'panel/admin_user'					=> array('webmaster'),
+		'panel/admin_user_create'			=> array('webmaster'),
+		'panel/admin_user_group'			=> array('webmaster'),
+		'award/scout_progressive'			=> array('webmaster','Leader'),
+		'panel/scout_user'					=> array('webmaster','Leader'),
+		'scout/my_award'					=> array('Scout','Sea Scout','Air Scout'),
+		'scout/my_personal_particular'		=> array('Scout','Sea Scout','Air Scout'),
+		'badge/my_badge'					=> array('Scout','Sea Scout','Air Scout'),
 	),
 
 	// AdminLTE settings
 	'adminlte' => array(
 		'body_class' => array(
-			'webmaster'	=> 'skin-red',
-			'admin'		=> 'skin-green',
-			'staff'		=> 'skin-green',
+			'webmaster'			=> 'skin-blue',
+			'Leader'			=> 'skin-red',
+			'Scout'				=> 'skin-green',
+			'Sea Scout'			=> 'skin-green',
+			'Air Scout'			=> 'skin-green',
 		)
 	),
 
 	// Useful links to display at bottom of sidemenu
 	'useful_links' => array(
 		array(
-			'auth'		=> array('webmaster', 'admin','staff'),
+			'auth'		=> array('webmaster', 'Leader','Scout','Sea Scout','Air Scout'),
 			'name'		=> '童軍訓練綱要 (網上版)',
-			'url'		=> CI_BOOTSTRAP_REPO,
+			'url'		=> 'http://prog.scouting.org.hk/scouts/ts/ts-web-c',
 			'target'	=> '_blank',
 			'color'		=> 'text-green'
 		),

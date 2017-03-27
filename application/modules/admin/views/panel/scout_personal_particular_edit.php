@@ -12,7 +12,7 @@
 							<th style="width:120px">Chinese Name: </th>
 							<td><?php echo $record['chinese_name']; ?></td>
 							<th style="width:120px">English Name: </th>
-							<td ><?php echo $record['english_name']; ?></td>
+							<td ><?php echo $record['english_first_name']; ?><?php echo $record['english_last_name']; ?></td>
 						</tr>
 						<tr>
 							<th style="width:60px">Date of Birth: </th>
@@ -68,10 +68,12 @@
 						<label for="user id">User ID</label>
 						<label><?php echo $user_id ?></label>
 						<?php echo $form->bs3_text('中文全名', 'chinese_name', $record['chinese_name']); ?>
-						<?php echo $form->bs3_text('English Name', 'english_name', $record['english_name']); ?>
+						<?php echo $form->bs3_text('English First Name', 'english_first_name', $record['english_first_name']); ?>
+						<?php echo $form->bs3_text('English Last Name', 'english_last_name', $record['english_last_name']); ?>
 						<label for="dateOfBirth">Date of Birth</label>
-						<input type="date" class="form-control" name="date_of_birth" value="<?php echo $record['date_of_birth'] ?>" onclick=""/>
+						<input type="date" class="form-control" name="date_of_birth" value="<?php echo $record['date_of_birth'] ?>" onchange="Age()" />
 						<br>
+						<?php echo $form->bs3_text_disable('Age', 'age'); ?>
 						<?php echo $form->bs3_text('Gender', 'gender', $record['gender']); ?>
 						<?php echo $form->bs3_text('HKID Card No.(e.g. A123)', 'hkid', $record['hkid']); ?>
 						<?php echo $form->bs3_text('Record Book No.', 'record_book_number', $record['record_book_number']); ?>
@@ -99,18 +101,30 @@
 	    var thisYear = 0;
 	    var birthDay = '<?php echo $record['date_of_birth']; ?>';
 	    var date = birthDay.split("-");
-	    console.log(today);
-
-	    if (today.getMonth() < date[1]) {
+	    console.log(today.getDate());
+	    console.log(birthDay);
+	    if (today.getMonth()+1 > date[1]) {
 	        thisYear = 0;
-	    } else if ((today.getMonth() == date[1]) && today.getDate() < date[2]) {
+	        console.log('0');
+	    } else if ((today.getMonth()+1 == date[1]) && today.getDate() > date[2]) {
 	        thisYear = 0;
-	    } else if ((today.getMonth() == date[1]) && today.getDate() == date[2]) {
+	        console.log('0');
+	    } else if ((today.getMonth()+1 == date[1]) && today.getDate() == date[2]) {
 	    	thisYear = 0; 
+	        console.log('0');
 		}else {
 	    	thisYear = 1;
+	        console.log('1');
 	    }
 	    var age = today.getFullYear() - date[0] - thisYear;
+	    console.log(age);
 	    document.getElementById('idAge').innerHTML = age;
+	    document.getElementById('age').value = age;
 	}
+	$(document).ready(function(){
+	  $("#submit").on("click",function(){
+	    $("#age").removeAttr('disabled');
+	  });
+	});
+	// function              
 </script>

@@ -1,3 +1,10 @@
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+<script type="text/javascript">
+	var doc = new jsPDF();
+
+	doc.text('Hello world!', 10, 10);
+	doc.save('a4.pdf');
+</script> -->
 <div class="login-box">
 
 	<div class="login-logo"><b><?php echo $site_name; ?></b></div>

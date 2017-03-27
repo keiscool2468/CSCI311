@@ -126,6 +126,13 @@ class Form {
 		return form_input($data, $value, $extra);
 	}
 
+	public function field_text_disable($name, $value = NULL, $extra = array())
+	{
+		$data = array('type' => 'text', 'id' => $name, 'name' => $name);
+		$value = ($value===NULL) ? $this->get_field_value($name) : $value;
+		return form_input_disable($data, $value, $extra);
+	}
+
 	// Input field (type = email)
 	public function field_email($name = 'email', $value = NULL, $extra = array())
 	{
@@ -189,6 +196,7 @@ class Form {
 	public function btn_submit($label = 'Submit', $extra = array())
 	{
 		$data = array('type' => 'submit');
+		$id = array('id' => 'submit');
 		return form_button($data, $label, $extra);
 	}
 
@@ -218,6 +226,12 @@ class Form {
 	{
 		$extra['class'] = 'form-control';
 		return '<div class="form-group">'.form_label($label, $name).$this->field_text($name, $value, $extra).'</div>';
+	}
+
+	public function bs3_text_disable($label, $name, $value = NULL, $extra = array())
+	{
+		$extra['class'] = 'form-control';
+		return '<div class="form-group">'.form_label($label, $name).$this->field_text_disable($name, $value, $extra).'</div>';
 	}
 	
 

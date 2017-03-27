@@ -167,30 +167,28 @@ $config['ci_bootstrap'] = array(
 	'adminlte' => array(
 		'body_class' => array(
 			'webmaster'	=> 'skin-red',
-			'admin'		=> 'skin-purple',
-			'manager'	=> 'skin-black',
-			'staff'		=> 'skin-blue',
+			'scout'		=> 'skin-purple',
 		)
 	),
 
 	// Useful links to display at bottom of sidemenu (e.g. to pages outside Admin Panel)
 	'useful_links' => array(
 		array(
-			'auth'		=> array('webmaster', 'admin', 'manager', 'staff'),
+			'auth'		=> array('webmaster', 'admin', 'manager', 'scout'),
 			'name'		=> 'Frontend Website',
 			'url'		=> '',
 			'target'	=> '_blank',
 			'color'		=> 'text-aqua'
 		),
 		array(
-			'auth'		=> array('webmaster', 'admin'),
+			'auth'		=> array('webmaster', 'admin','Scout'),
 			'name'		=> 'API Site',
 			'url'		=> 'api',
 			'target'	=> '_blank',
 			'color'		=> 'text-orange'
 		),
 		array(
-			'auth'		=> array('webmaster', 'admin', 'manager', 'staff'),
+			'auth'		=> array('webmaster', 'admin', 'manager', 'scout'),
 			'name'		=> 'Github Repo',
 			'url'		=> CI_BOOTSTRAP_REPO,
 			'target'	=> '_blank',
